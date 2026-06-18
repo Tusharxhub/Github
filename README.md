@@ -1,4 +1,4 @@
-# Complete Git and GitHub Notes (A to Z)
+#  Git and GitHub Notes
 
 > A beginner-friendly, comprehensive handbook covering every Git and GitHub concept, command, workflow, and best practice — from installing Git to contributing to open-source projects.
 
