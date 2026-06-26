@@ -1,36 +1,59 @@
 # Pull Request (PR)
 
 ## What is it?
-A Pull Request (PR) is a GitHub feature that allows you to propose changes to a repository. You are literally requesting the owner to "pull" your code into their project.
+A Pull Request (PR) is a GitHub feature (not a Git command) that allows you to propose changes to a repository. You are literally requesting the owner of the repository to "pull" your code into their `main` branch.
 
 ## Why do we use it?
-In professional environments and open-source, you never push code directly to the `main` branch. You create a branch, push it to GitHub, and open a Pull Request. This allows other developers to review your code, discuss it, and approve it before it gets merged.
+In professional environments and open-source projects, developers **never** push code directly to the `main` branch. Pushing directly to `main` is dangerous because if the code contains a bug, the entire production application breaks. 
 
-## Basic Syntax
-Pull Requests are created on the GitHub website, not the terminal.
+Instead, developers use a Pull Request workflow:
+1. You create a separate branch.
+2. You write your code and push the branch to GitHub.
+3. You open a Pull Request.
+4. Other developers read your code, leave comments, ask for changes, and eventually approve it.
+5. Once approved, the code is safely merged into `main`.
 
-## Example
-1. Create a new branch and write some code:
-   ```bash
-   git switch -c add-login
-   git add .
-   git commit -m "feat: add login page"
-   ```
-2. Push your branch to GitHub:
-   ```bash
-   git push -u origin add-login
-   ```
-3. Go to your repository on GitHub. You will see a green button saying **Compare & pull request**.
-4. Click it, write a good description, and click **Create pull request**.
+This peer-review process ensures high code quality, catches bugs early, and shares knowledge among the team.
+
+## How to Create a Pull Request
+
+**Step 1: Push your branch**
+Make sure you have pushed your feature branch to GitHub:
+```bash
+git switch -c add-login
+git add .
+git commit -m "feat: add login page"
+git push -u origin add-login
+```
+
+**Step 2: Open GitHub**
+Go to your repository on GitHub. You will automatically see a highlighted green banner that says **"add-login had recent pushes"** with a button saying **Compare & pull request**. Click it.
+
+**Step 3: Fill out the PR Details**
+- **Title:** Make it clear and concise (e.g., `Add user login authentication`).
+- **Description:** Explain *what* you changed, *why* you changed it, and *how* reviewers can test it. If your PR fixes a specific issue, write "Fixes #123" in the description to automatically link them.
+
+**Step 4: Create the PR**
+Click the green **Create pull request** button.
+
+## The Review Process
+Once the PR is open, your teammates will review it. They can:
+- **Comment:** Ask questions about specific lines of code.
+- **Request Changes:** Formally block the merge until you fix something.
+- **Approve:** Give the green light to merge.
+
+If they request changes, you don't need to open a new PR. You simply go back to your code editor, make the fixes, commit them, and run `git push`. The existing PR will automatically update with your new commits!
 
 ## Common Mistakes
-- **Leaving the description blank:** Always explain *why* you made the change and *how* you tested it so reviewers understand your code.
-- **Making the PR too big:** Try to keep Pull Requests small and focused on a single feature or bug fix. Massive PRs take forever to review.
+- **Massive Pull Requests:** Reviewing 2,000 lines of code is a nightmare for your teammates. Keep PRs small and focused on a single feature or bug fix.
+- **Leaving the description blank:** A PR with no description forces the reviewer to guess what you were trying to do. Always provide context.
+- **Merging your own PR without review:** If you are on a team, wait for someone else to approve it before clicking merge.
 
 ## Quick Summary
 - A request for someone to review and merge your code.
-- Standard practice for all team collaboration.
-- Created on the GitHub website after pushing a branch.
+- Essential for team collaboration and code quality.
+- Keep PRs small, descriptive, and focused.
+- Created on the GitHub website after pushing a feature branch.
 
 ## Diagram
 
